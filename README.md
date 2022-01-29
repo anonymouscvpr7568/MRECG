@@ -2,7 +2,11 @@
 
 # OMPQ: Orthogonal Mixed Precision Quantization
 
-This repository contains all the experiments of our paper "OMPQ: Orthogonal Mixed Precision Quantization".
+This repository contains all the experiments of paper "OMPQ: Orthogonal Mixed Precision Quantization".
+
+![ Mixed precision quantization comparison](.\overview.png){width=65%}
+
+An overview of OMPQ. Left: Deconstruct the model into a set of functions F. Middle: ORM symmetric matrix calculated from F. Right: Linear programming problem constructed by the importance factor θ to derive optimal bit configuration.
 
 # Requirements
 
