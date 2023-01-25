@@ -1,0 +1,35 @@
+extra_prepare_dict:
+    extra_qconfig_dict:
+        w_observer: MSEObserver
+        a_observer: EMAMSEObserver
+        w_fakequantize: FixedFakeQuantize
+        a_fakequantize: FixedFakeQuantize
+        w_qscheme:
+            bit: 4
+            symmetry: False
+            per_channel: True
+            pot_scale: False
+        a_qscheme:
+            bit: 8
+            symmetry: False
+            per_channel: False
+            pot_scale: False
+
+quantize:
+    quantize_type: naive_ptq # support naive_ptq or advanced_ptq
+    cali_batchsize: 16
+model:                    # architecture details
+    type: mobilenet_v2        # model name
+    kwargs:
+        num_classes: 1000
+        width_mult: 1.0
+    path: /mnt/bn/mayuexiao/MQBench-main/application/imagenet_example/pretrained/mobilenetv2_1.0-0c6065bc.pth
+data:
+    path: /dev/shm/imagenet
+    batch_size: 64
+    num_workers: 4
+    pin_memory: True
+    input_size: 224
+    test_resize: 256
+process:
+    seed: 1005
